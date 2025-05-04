@@ -28,17 +28,14 @@ export const getAllTodos = async () => {
 };
 
 // Update Todo (Update)
-export const updateTodo = async (id, title, description) => {
-  const response = await fetch(
-    `${API_BASE_URL}/todos/${id}`,
-    {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ title, description }),
-    }
-  );
+export const updateTodo = async (id, title, dueDate) => {
+  const response = await fetch(`${API_BASE_URL}/api/todos/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ title, dueDate }),
+  });
 
   return handleResponse(response);
 };
@@ -54,3 +51,4 @@ export const deleteTodo = async (id) => {
 
   return handleResponse(response);
 };
+
